@@ -1,3 +1,5 @@
+import java.util.Random; 
+
 public class TypeC extends Thing { 
     private boolean turnLeft = true; 
 
@@ -8,7 +10,7 @@ public class TypeC extends Thing {
     }
 
     @Override 
-    public void maybeTurn() {
+    public void maybeTurn(Random rand) {
         if(turnLeft) {
             leftTurn(); 
         } else {

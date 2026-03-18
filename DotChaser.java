@@ -8,15 +8,16 @@ public class DotChaser {
       N = Integer.parseInt(args[0]);
 
     // INSTEAD OF A NODE, CREATE SOMETHING MORE USER-FRIENDLY.
+    Random rand = new Random(System.currentTimeMillis());
     ThingList list = new ThingList();
     int count = 0;
 
     while( true ) {
       // Every N rounds, add another typeA and typeB Thing.
       if( count % N == 0 ) {
-        list.add(new TypeA()); 
-        list.add(new TypeB()); 
-        list.add(new TypeC()); 
+        list.addThing(new TypeA()); 
+        list.addThing(new TypeB()); 
+        list.addThing(new TypeC()); 
       }
 
       // Print out each thing.
@@ -28,7 +29,7 @@ public class DotChaser {
 
       // Move each thing.
       // (SEEMS LIKE A NICE MOVEALL() METHOD CALL WOULD WORK HERE)
-      list.moveAll();
+      list.moveAll(rand);
       count++;
     }
   }

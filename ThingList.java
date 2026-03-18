@@ -1,7 +1,14 @@
+import java.util.Random;
+
 public class ThingList {
+    private class Node {
+        Thing data;
+        Node next;
+    }
+
     private Node head; 
 
-    public void add(Thing t) {
+    public void addThing(Thing t) {
         Node n = new Node(); 
         n.data = t; 
         n.next = head; 
@@ -9,15 +16,15 @@ public class ThingList {
     }
 
     public void printAll() {
-        for( Node T = L; T != null; T = T.next )
-            System.out.println(T.data.row + " " + T.data.col + " " + T.data.lab);
+        for( Node T = head; T != null; T = T.next )
+            System.out.println(T.data.toString());
     }
     
 
-    public void moveAll() {
-        for( Node T = L; T != null; T = T.next ) {
-            maybeTurn(T.data);
-            step(T.data);
+    public void moveAll(Random rand) {
+        for( Node T = head; T != null; T = T.next ) {
+            T.data.maybeTurn(rand);
+            T.data.step();
         }
     }
 }

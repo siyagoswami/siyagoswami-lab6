@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class TypeB extends Thing {
     public TypeB() {
         row = 55; 
@@ -6,18 +8,18 @@ public class TypeB extends Thing {
     }
 
     @Override 
-    public void maybeTurn() { 
+    public void maybeTurn(Random rand) { 
         int i = rand.nextInt(3);
-        t.timeSinceLast++;
+        timeSinceLast++;
 
-        if (t.timeSinceLast == 10) {
-            t.timeSinceLast = 0;
+        if (timeSinceLast == 10) {
+            timeSinceLast = 0;
             if (i == 1) {
-                rightTurn(t);
+                rightTurn();
             }
 
             if (i == 2) {
-                leftTurn(t);
+                leftTurn();
             }
         }
     }
